@@ -4,7 +4,6 @@ var work = {};
 var education = {};
 var projects = {};
 
-
 bio["name"] = "Patrick Mahoney";
 bio["role"] = "Front-End Ninja";
 bio["contacts"] = {
@@ -16,38 +15,41 @@ bio["contacts"] = {
 }
 bio["welcomeMessage"] = "FEAST YOUR EYES!!!";
 bio["skills"] = [
-  "Leading", "Programming", 
-  "Counting", "Eating"
+  "Leading", "Programming", "Counting", "Eating"
 ]
 bio["bioPic"] = "images/kevinspacey.jpeg";
+}
 
-education["schools"] = [
-  {
-    "name": "Virginia Tech",
-    "location": "Blacksburg, VA",
-    "degree": "B.S.",
-    "majors": ["Human Resources"],
-    "dates": 2009,
-    "url": "virginiatech.edu"
-  },
-  {
-    "name": "VCU",
-    "location": "Richmond, VA",
-    "degree": "Masters",
-    "majors": ["Business Administration"],
-    "dates": 2011,
-    "url": "vcu.edu"
-  }
-]
-education["onlineCourses"] = [
-  {
-    "title": "JavaScript Basics & Front-End Web Development",
-    "location": "Midlothian, VA",
-    "school" : "Udacity",
-    "dates": 2015,
-    "url": "http://www.udacity.com"
-  }
-]
+
+var education = {
+  "schools" : [
+    {
+    "name" : "Virginia Tech",
+    "location" : "Blacksburg, VA",
+    "degree" : "BS",
+    "majors" : "Human Resources Management",
+    "dates" : "2005 - 2009"
+    },
+    {
+      "name" : "VCU",
+      "location" : "Richmond, VA",
+      "degree" : "Masters",
+      "majors" : "Business Administration",
+      "dates" : "2009 - 2012"
+    }
+  ],
+    "onlineCourses" : [
+      {
+        "title" : "JavaScript Basics & Front-End Web Development",
+        "location": "Interwebs",
+        "school" : "Udacity",
+        "dates" : "December, 2015",
+        "url" : "http://www.udacity.com"
+      }
+    ]
+};
+
+
 work["jobs"] = [
   {
     "employer": "Capital One",
@@ -64,35 +66,16 @@ work["jobs"] = [
     "description": "Investigated credit card fraud claims for legitimacy and financial recovery."
   }
 ]
-
-/*function locationizer(work_obj){
-  var locationArray = [];
-  for (job in work_obj.jobs) {
-    var newLocation = work_obj.jobs[job].location;
-    locationArray.push(newLocation);
-  }
-  return locationArray;
-}
-console.log(locationizer(work));
-*/
-
-
-
 projects["projects"] = [
   {
     "title": "Udacity Mug Website",
     "dates": "December, 2014",
     "description": "I drank caffeine, a lot, and eventually replicated a pdf file into an HTML/CSS website.",
-    "images": ["images/mug.png"]
-  },
-  {
-    "title": "Interactive Resume",
-    "dates": "February, 2014",
-    "description": "I drank caffeine, a lot, and eventually made a website to display my skilz.",
-    "images": ["images/success.jpeg"]
+    "images": [
+      "images/mug.png"
+    ]   
   }
 ]
-
 
 bio.display = function() {
   var formattedRole = HTMLheaderRole.replace("%data%", bio.role)
@@ -116,7 +99,6 @@ bio.display = function() {
   if(bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
   }
-
   for (skill in bio.skills) {
     var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
     $("#skills").append(formattedSkill);
@@ -132,38 +114,30 @@ bio.display = function() {
 
 work.display = function() {
   for (job in work.jobs) {
-
     $("#workExperience").append(HTMLworkStart);
-    
     var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
     var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
     $(".work-entry:last").append(formattedEmployerTitle);
-
     var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
     $(".work-entry:last").append(formattedDates);
-
     var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
     $(".work-entry:last").append(formattedLocation);
-
     var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
     $(".work-entry:last").append(formattedDescription);
   }
 }
 
 projects.display = function() {
-  for (project in projects.projects) {
+  for (project in projects.projects) 
+  {
     $("#projects").append(HTMLprojectStart);
-
     var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
     $(".project-entry:last").append(formattedTitle);
-
     var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
     $(".project-entry:last").append(formattedDates);
-
     var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
     $(".project-entry:last").append(formattedDescription);
-
     if (projects.projects[project].images.length > 0) {
       for (image in projects.projects[project].images) {
         var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
@@ -176,18 +150,14 @@ projects.display = function() {
 education.display = function() {
   for (school in education.schools) {
     $("#education").append(HTMLschoolStart);
-
     var formattedSchoolName = HTMLworkEmployer.replace("%data%", education.schools[school].name);
     var formattedDegree = HTMLworkTitle.replace("%data%", education.schools[school].degree);
     var formattedSchoolHeader = formattedSchoolName + formattedDegree;
     $(".education-entry:last").append(formattedSchoolHeader);
-
     var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
     $(".education-entry:last").append(formattedDates);
-
     var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
     $(".education-entry:last").append(formattedLocation);
-
     for (major in education.schools[school].majors) {
       var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
       $(".education-entry:last").append(formattedMajor);
@@ -198,20 +168,16 @@ education.display = function() {
 
   for (course in education.onlineCourses) {
     $("#education").append(HTMLschoolStart);
-
     var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
     var formattedSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[course].school);
     var formattedOnlineHeader  = formattedTitle + formattedSchool;
     $(".education-entry:last").append(formattedOnlineHeader);
-    
     var formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[course].dates);
     $(".education-entry:last").append(formattedDates);
-
     var formattedURL = HTMLonlineURL.replace("%data%",education.onlineCourses[course].url);
     $(".education-entry:last").append(formattedURL);
   }
 }
-
 
 bio.display();
 work.display();
@@ -234,5 +200,9 @@ function inName(_name) {
 }
 
 $('#main').append(internationalizeButton);
-
 $("#mapDiv").append(googleMap);
+
+function myFunction () {
+  var str = "Go to Udacity"
+}
+

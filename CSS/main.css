@@ -1,5 +1,4 @@
 
-
 * {
   padding:0;
   margin:0;
@@ -116,6 +115,7 @@ a {
   background-color: #4A4A4A;
 }
 
+/* TODO: Replace with image later */
 #header {
   background-color: #484848;
 }
@@ -126,8 +126,7 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
 .center-content {
@@ -141,10 +140,6 @@ ul {
   list-style-type: none;
 }
 
-#topcontacts {
-  padding-left: 0px;
-  padding-right: 0px;
-}
 .biopic {
   float: left;
   padding: 10px;
@@ -156,6 +151,7 @@ img {
   padding: 10px;
 }
 
+/* Bar chart stuff */
 .chart div {
   font: 10px sans-serif;
   background-color: #4A4A4A;

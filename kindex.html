@@ -1,17 +1,35 @@
-
 <!DOCTYPE html>
+
+<!--
+This is an HTML document. It contains information about how elements in the website
+are arranged. In other words, it describes the layout of a website.
+I can't wait to see the resumes you put together!
+Cameron Pittman, Udacity Course Developer
+-->
+
+<!--
+The <head> of a website generally links to important resources the page will
+need to load. You'll see a lot of <link>s to CSS files for styles and
+<scripts> for JavaScript files to build interactions.
+-->
 <head>
+  <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
-  <title>Patrick Mahoney's Resume</title>
+
+  <!-- Tells the browser what the title of this page should be. -->
+  <title>Resume</title>
+
+  <!-- Load the page styles. -->
   <link href="css/css.css" rel="stylesheet" type="text/css">
   <script src="js/jQuery.js"></script>
-  <script src="js/helper.js"></script>
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="js/khelper.js"></script>
+   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
   <meta name="viewport" content="width=device-width">
 </head>
 <body unresolved>
   <div id="main">
+   
     <div id="header" class="center-content clearfix">
       <ul id="topContacts" class='flex-box'></ul>
     </div>
@@ -35,10 +53,11 @@
     </div>
   </div>
 
-  <script src="js/ResumeBuilder.js"></script>
-
+ 
+  <script src="js/kresume.js"></script>
+  
   <script type="text/javascript">
-   
+    
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
     }
@@ -46,13 +65,13 @@
       document.getElementById('header').style.background = 'black';
     }
     if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
+      document.getElementById('workExperience').style.background = 'black';
     }
     if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
+      document.getElementById('projects').style.background = 'black';
     }
     if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
+      document.getElementById('education').style.background = 'black';
     }
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('letsConnect').style.display = 'none';
